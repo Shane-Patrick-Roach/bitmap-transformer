@@ -33,8 +33,6 @@ public class App {
         }
 
 
-
-
         if (userPath.endsWith("bitmap-transformer")) {
             resourcesPath = "app/src/main/resources/";
         } else {
@@ -51,6 +49,15 @@ public class App {
             Bitmap inputImage = new Bitmap(img);
             if (transformationType.equals("copy")) {
                 inputImage.copyImage();
+            }
+            if (transformationType.equals("gray-scale")){
+                inputImage.grayScale();
+            }
+            if (transformationType.equals("invert")){
+                inputImage.invert();
+            }
+            if (transformationType.equals("randomize")){
+                inputImage.randomize();
             }
             inputImage.writeOutImage(resourcesPath + outputFileName);
 
