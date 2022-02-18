@@ -3,12 +3,56 @@
  */
 package bitmap.transformer;
 
+import bitmap.transformer.bitmap.Bitmap;
 import org.junit.jupiter.api.Test;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test
+    void testForFile(){
+        App sut = new App();
     }
+
+    @Test
+    void testForGreyScale(){
+        App sut = new App();
+
+        String userPath = null;
+        String resourcesPath;
+        String fileName = null;
+
+
+        if (userPath.endsWith("bitmap-transformer")) {
+            resourcesPath = "app/src/test/resources/";
+        } else {
+            resourcesPath = "src/test/resources/";
+        }
+
+        File testImage = new File(resourcesPath + fileName);
+
+        BufferedImage img = null;
+
+        try{
+            img = ImageIO.read(testImage);
+            Bitmap inputImage = new Bitmap(img);
+            inputImage.grayScale();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            System.exit(1);
+        }
+
+
+
+
+
+
+    }
+
+
 }
