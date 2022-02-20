@@ -24,7 +24,9 @@ public class Bitmap {
         this.inputImage = inputImage;
     }
 
-
+    public BufferedImage getBufferedImage() {
+        return outputImage;
+    }
 
     public void grayScale(){
         for(int i = 0; i < width; i++){
